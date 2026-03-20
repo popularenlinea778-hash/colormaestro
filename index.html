@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ColorMaestro | Pinturas y Recubrimientos Premium para Hogar e Industria</title>
+  <meta name="description" content="Venta de pinturas de calidad para interiores, exteriores e industria. Amplio catálogo con colores, recubrimientos y acabados para construcción y decoración de hogares." />
+  <meta name="keywords" content="pinturas, recubrimientos, decoración, hogar, construcción, pintura interior, pintura exterior, pintura industrial, barniz, esmalte" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="ColorMaestro | Pinturas y Recubrimientos Premium" />
+  <meta property="og:description" content="Pinturas de calidad para hogar, construcción e industria. Asesoría personalizada y amplio catálogo de colores." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1208;
+      --clay: #c84b11;
+      --clay-dark: #a03a09;
+      --clay-light: #f4dcd0;
+      --sand: #f7f0e8;
+      --stone: #8a7d6e;
+      --white: #fffdf9;
+      --black: #0e0b06;
+      --accent: #e8a020;
+      --green: #3a7a4a;
+      --blue-dark: #1c3a5e;
+      --radius: 4px;
+      --shadow: 0 4px 24px rgba(26,18,8,0.10);
+      --shadow-lg: 0 12px 48px rgba(26,18,8,0.15);
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,253,249,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(200,75,17,0.12);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+      transition: box-shadow var(--transition);
+    }
+    nav.scrolled { box-shadow: var(--shadow); }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo .logo-icon {
+      width: 36px; height: 36px;
+      background: var(--clay);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 18px; font-weight: 900;
+      font-family: 'Playfair Display', serif;
+    }
+    .nav-logo span { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--ink); }
+    .nav-logo span em { color: var(--clay); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--stone); transition: color var(--transition); }
+    .nav-links a:hover { color: var(--clay); }
+    .nav-cta {
+      background: var(--clay); color: white;
+      padding: 10px 22px; border-radius: var(--radius);
+      font-size: 0.88rem; font-weight: 600;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .nav-cta:hover { background: var(--clay-dark); transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: var(--transition); }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: var(--ink);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 100px 5% 60px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 70% 50%, rgba(200,75,17,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 20% 80%, rgba(232,160,32,0.12) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: linear-gradient(var(--stone) 1px, transparent 1px), linear-gradient(90deg, var(--stone) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 620px; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(200,75,17,0.2); border: 1px solid rgba(200,75,17,0.4);
+      color: var(--clay-light); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 20px; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      color: var(--white); font-weight: 900; margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .hero h1 .accent { color: var(--clay); }
+    .hero p {
+      color: rgba(247,240,232,0.75); font-size: 1.1rem;
+      max-width: 480px; margin-bottom: 36px; font-weight: 300;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--clay); color: white;
+      padding: 14px 32px; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.95rem;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      border: none; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { background: var(--clay-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,75,17,0.35); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      padding: 14px 32px; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.95rem;
+      border: 1.5px solid rgba(247,240,232,0.3);
+      transition: border-color var(--transition), background var(--transition);
+      cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.07); }
+    .hero-stats {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+      margin-top: 60px; max-width: 420px;
+    }
+    .hero-stat { padding: 16px; }
+    .hero-stat .num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--clay); }
+    .hero-stat .label { font-size: 0.78rem; color: rgba(247,240,232,0.55); text-transform: uppercase; letter-spacing: 0.08em; }
+    .hero-right {
+      position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+      max-width: 400px; z-index: 2;
+    }
+    .hero-swatch {
+      border-radius: 8px; aspect-ratio: 1;
+      display: flex; align-items: flex-end; padding: 14px;
+      font-size: 0.75rem; font-weight: 600; color: white;
+      box-shadow: var(--shadow-lg);
+      transition: transform var(--transition);
+      cursor: default;
+    }
+    .hero-swatch:hover { transform: scale(1.04); }
+    .hs1 { background: linear-gradient(135deg, #c84b11, #e07030); }
+    .hs2 { background: linear-gradient(135deg, #1c3a5e, #2a5490); }
+    .hs3 { background: linear-gradient(135deg, #3a7a4a, #4fa060); }
+    .hs4 { background: linear-gradient(135deg, #8a6020, #b88030); }
+
+    /* ===== SECTION STYLES ===== */
+    section { padding: 80px 5%; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--clay); margin-bottom: 12px;
+    }
+    .section-title { font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 16px; color: var(--ink); }
+    .section-desc { color: var(--stone); font-size: 1rem; max-width: 560px; }
+    .section-header { margin-bottom: 52px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-desc { margin: 0 auto; }
+
+    /* ===== CATEGORIES ===== */
+    .categories { background: var(--sand); }
+    .cats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .cat-card {
+      background: var(--white); border-radius: 12px;
+      padding: 36px 28px; position: relative; overflow: hidden;
+      border: 1px solid rgba(138,125,110,0.15);
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: default;
+    }
+    .cat-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .cat-icon {
+      width: 56px; height: 56px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; margin-bottom: 20px;
+    }
+    .cat-card.interior .cat-icon { background: rgba(200,75,17,0.1); }
+    .cat-card.exterior .cat-icon { background: rgba(28,58,94,0.1); }
+    .cat-card.industrial .cat-icon { background: rgba(58,122,74,0.1); }
+    .cat-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+    .cat-card p { color: var(--stone); font-size: 0.9rem; margin-bottom: 20px; }
+    .cat-link { color: var(--clay); font-size: 0.88rem; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .cat-link:hover { gap: 10px; }
+    .cat-bg {
+      position: absolute; right: -20px; bottom: -20px;
+      font-size: 100px; opacity: 0.05; line-height: 1;
+    }
+
+    /* ===== PRODUCTS ===== */
+    .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .product-card {
+      background: var(--white); border-radius: 12px; overflow: hidden;
+      border: 1px solid rgba(138,125,110,0.15);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .product-img {
+      height: 200px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .product-img .paint-visual {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 72px;
+      position: relative;
+    }
+    .product-img .paint-visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.08) 100%);
+    }
+    .product-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: var(--clay); color: white;
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 4px 10px; border-radius: 20px;
+    }
+    .product-info { padding: 20px; }
+    .product-type { font-size: 0.75rem; color: var(--stone); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+    .product-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 8px; }
+    .product-desc { font-size: 0.85rem; color: var(--stone); margin-bottom: 16px; line-height: 1.5; }
+    .product-footer { display: flex; align-items: center; justify-content: space-between; }
+    .product-price { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--clay); }
+    .product-price small { font-family: 'DM Sans', sans-serif; font-size: 0.75rem; color: var(--stone); font-weight: 400; }
+    .btn-sm {
+      background: var(--ink); color: white;
+      padding: 8px 16px; border-radius: var(--radius);
+      font-size: 0.82rem; font-weight: 600;
+      transition: background var(--transition);
+      border: none; cursor: pointer;
+    }
+    .btn-sm:hover { background: var(--clay); }
+
+    /* Product colors */
+    .pc-rojo { background: linear-gradient(135deg, #fde8dc, #f4b899); }
+    .pc-blanco { background: linear-gradient(135deg, #f8f8f4, #e8e8e0); }
+    .pc-azul { background: linear-gradient(135deg, #d4e3f4, #a0c0e8); }
+    .pc-verde { background: linear-gradient(135deg, #d4eadb, #9cccac); }
+    .pc-gris { background: linear-gradient(135deg, #e0ddd8, #b8b4ae); }
+    .pc-amarillo { background: linear-gradient(135deg, #fdf0d4, #f4d878); }
+    .pc-negro { background: linear-gradient(135deg, #404040, #1a1a1a); }
+    .pc-terracota { background: linear-gradient(135deg, #f4dcd0, #d4906a); }
+
+    /* ===== FEATURED ===== */
+    .featured { background: var(--ink); }
+    .featured .section-title { color: var(--white); }
+    .featured .section-label { color: var(--accent); }
+    .featured-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .featured-card {
+      border-radius: 12px; padding: 36px;
+      position: relative; overflow: hidden;
+      min-height: 260px; display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .fc-main { background: linear-gradient(135deg, #c84b11 0%, #8a2a00 100%); }
+    .fc-sub { background: linear-gradient(135deg, #1c3a5e 0%, #0e1e30 100%); }
+    .featured-card h3 { font-size: 1.5rem; color: white; margin-bottom: 8px; }
+    .featured-card p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 20px; }
+    .featured-card .tag {
+      position: absolute; top: 24px; right: 24px;
+      background: rgba(255,255,255,0.15); color: white;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 20px;
+    }
+    .featured-card .price { font-family: 'Playfair Display', serif; font-size: 2rem; color: white; margin-bottom: 16px; }
+    .fc-visual {
+      position: absolute; right: 24px; bottom: 24px; opacity: 0.15;
+      font-size: 120px; line-height: 1;
+    }
+    .small-featured { display: flex; flex-direction: column; gap: 24px; }
+    .fc-sm { background: linear-gradient(135deg, #3a5020, #1e2a10); }
+    .fc-sm2 { background: linear-gradient(135deg, #5a3010, #3a1a00); }
+
+    /* ===== BENEFITS ===== */
+    .benefits { background: var(--clay-light); }
+    .benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .benefit { text-align: center; }
+    .benefit-icon {
+      width: 70px; height: 70px; margin: 0 auto 16px;
+      background: var(--white); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 4px 16px rgba(200,75,17,0.15);
+    }
+    .benefit h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .benefit p { font-size: 0.88rem; color: var(--stone); }
+
+    /* ===== ABOUT ===== */
+    .about { background: var(--white); }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-visual {
+      position: relative;
+      height: 420px;
+    }
+    .about-block {
+      border-radius: 12px; position: absolute;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ab1 {
+      width: 62%; height: 72%; top: 0; left: 0;
+      background: linear-gradient(135deg, #c84b11, #e07030);
+      font-size: 90px;
+    }
+    .ab2 {
+      width: 50%; height: 55%; bottom: 0; right: 0;
+      background: linear-gradient(135deg, #1c3a5e, #2a5490);
+      font-size: 70px;
+    }
+    .ab3 {
+      width: 34%; height: 28%; bottom: 36%; right: 48%;
+      background: var(--accent); font-size: 36px;
+    }
+    .about-content .section-desc { margin-bottom: 24px; }
+    .about-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+    .about-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.93rem; }
+    .about-list li::before {
+      content: '✓'; color: var(--clay); font-weight: 700;
+      background: var(--clay-light); width: 24px; height: 24px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 0.75rem; margin-top: 1px;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact { background: var(--sand); }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    .contact-info h3 { font-size: 1.4rem; margin-bottom: 20px; }
+    .contact-items { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item { display: flex; gap: 16px; align-items: flex-start; }
+    .ci-icon {
+      width: 44px; height: 44px; background: var(--clay-light);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .ci-label { font-size: 0.75rem; color: var(--stone); text-transform: uppercase; letter-spacing: 0.1em; }
+    .ci-val { font-size: 0.95rem; font-weight: 500; margin-top: 2px; }
+    .contact-form { background: var(--white); border-radius: 12px; padding: 36px; box-shadow: var(--shadow); }
+    .contact-form h3 { font-size: 1.2rem; margin-bottom: 24px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.83rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid rgba(138,125,110,0.25);
+      border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--ink);
+      background: var(--white);
+      transition: border-color var(--transition);
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--clay); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-note { font-size: 0.78rem; color: var(--stone); margin-top: 12px; }
+    .form-submit {
+      width: 100%; padding: 14px;
+      background: var(--clay); color: white;
+      border: none; border-radius: var(--radius);
+      font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; transition: background var(--transition);
+    }
+    .form-submit:hover { background: var(--clay-dark); }
+
+    /* ===== LEGAL ===== */
+    .legal-section { background: var(--white); padding: 60px 5%; }
+    .legal-tabs { display: flex; gap: 8px; margin-bottom: 36px; flex-wrap: wrap; }
+    .legal-tab {
+      padding: 10px 22px; border-radius: 30px;
+      border: 1.5px solid rgba(138,125,110,0.25);
+      font-size: 0.87rem; font-weight: 600; cursor: pointer;
+      transition: all var(--transition); background: transparent; color: var(--stone);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .legal-tab.active, .legal-tab:hover {
+      background: var(--clay); color: white; border-color: var(--clay);
+    }
+    .legal-content { display: none; }
+    .legal-content.active { display: block; }
+    .legal-content h2 { font-size: 1.6rem; margin-bottom: 20px; }
+    .legal-content h3 { font-size: 1.1rem; margin: 24px 0 10px; color: var(--clay); }
+    .legal-content p { color: var(--stone); font-size: 0.92rem; line-height: 1.7; margin-bottom: 14px; }
+    .legal-content ul { color: var(--stone); font-size: 0.92rem; padding-left: 20px; margin-bottom: 14px; }
+    .legal-content ul li { margin-bottom: 6px; line-height: 1.6; }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--black); color: rgba(247,240,232,0.7); }
+    .footer-main {
+      padding: 60px 5% 40px;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 14px; }
+    .footer-brand .nav-logo span { color: var(--white); }
+    .footer-desc { font-size: 0.87rem; line-height: 1.6; margin-bottom: 20px; }
+    .social-links { display: flex; gap: 10px; }
+    .social-link {
+      width: 38px; height: 38px;
+      background: rgba(247,240,232,0.08); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; transition: background var(--transition);
+    }
+    .social-link:hover { background: var(--clay); }
+    .footer-col h4 { font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 0.88rem; color: rgba(247,240,232,0.6); transition: color var(--transition); }
+    .footer-col ul li a:hover { color: var(--clay); }
+    .footer-bottom {
+      border-top: 1px solid rgba(247,240,232,0.08);
+      padding: 20px 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 0.8rem; color: rgba(247,240,232,0.4);
+    }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { color: rgba(247,240,232,0.4); transition: color var(--transition); }
+    .footer-legal a:hover { color: var(--white); }
+
+    /* ===== MODALS (Product Detail) ===== */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 2000;
+      background: rgba(26,18,8,0.6); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--white); border-radius: 16px;
+      max-width: 760px; width: 100%; max-height: 90vh; overflow-y: auto;
+      position: relative;
+    }
+    .modal-close {
+      position: sticky; top: 16px; float: right; margin: 16px 16px 0 0;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(138,125,110,0.15); border: none; cursor: pointer;
+      font-size: 18px; display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition); color: var(--ink);
+    }
+    .modal-close:hover { background: var(--clay-light); }
+    .modal-body { padding: 28px 36px 36px; }
+    .modal-img {
+      width: 100%; height: 240px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 100px; margin-bottom: 24px;
+    }
+    .modal-type { font-size: 0.75rem; color: var(--stone); text-transform: uppercase; letter-spacing: 0.1em; }
+    .modal-title { font-size: 1.8rem; margin: 8px 0 6px; }
+    .modal-price { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--clay); margin-bottom: 20px; }
+    .modal-desc { color: var(--stone); font-size: 0.93rem; line-height: 1.7; margin-bottom: 24px; }
+    .specs-title { font-size: 1rem; margin-bottom: 12px; }
+    .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+    .spec { background: var(--sand); border-radius: 8px; padding: 12px 16px; }
+    .spec-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone); }
+    .spec-val { font-size: 0.93rem; font-weight: 600; margin-top: 3px; }
+    .modal-recs { background: var(--clay-light); border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; }
+    .modal-recs h4 { font-size: 0.95rem; margin-bottom: 8px; color: var(--clay-dark); }
+    .modal-recs p { font-size: 0.88rem; color: var(--stone); line-height: 1.6; }
+    .modal-actions { display: flex; gap: 12px; }
+
+    /* ===== TOAST ===== */
+    .toast {
+      position: fixed; bottom: 24px; right: 24px; z-index: 3000;
+      background: var(--ink); color: white;
+      padding: 14px 20px; border-radius: 10px;
+      font-size: 0.9rem; font-weight: 500;
+      transform: translateY(80px); opacity: 0;
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+      display: flex; align-items: center; gap: 10px;
+      box-shadow: var(--shadow-lg);
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast .check { color: #4caf50; font-size: 18px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .hero-right { display: none; }
+      .cats-grid { grid-template-columns: 1fr; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-visual { height: 280px; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: repeat(2,1fr); }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 60px 5%; }
+      .products-grid { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .specs-grid { grid-template-columns: 1fr; }
+      .modal-body { padding: 20px; }
+      .hero-stats { grid-template-columns: 1fr 1fr; max-width: 280px; }
+    }
+    /* Mobile nav */
+    .mobile-nav {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: var(--white); padding: 80px 5% 40px;
+      flex-direction: column; gap: 24px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 1.2rem; font-weight: 500; color: var(--ink); padding: 10px 0; border-bottom: 1px solid var(--clay-light); }
+    .mobile-nav a.active { color: var(--clay); }
+
+    /* Scroll animations */
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#inicio" class="nav-logo">
+    <div class="logo-icon">C</div>
+    <span>Color<em>Maestro</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#catalogo">Catálogo</a></li>
+    <li><a href="#destacados">Destacados</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#catalogo" class="nav-cta">Ver Catálogo</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#inicio" onclick="toggleMobileNav()">Inicio</a>
+  <a href="#catalogo" onclick="toggleMobileNav()">Catálogo</a>
+  <a href="#destacados" onclick="toggleMobileNav()">Destacados</a>
+  <a href="#nosotros" onclick="toggleMobileNav()">Nosotros</a>
+  <a href="#contacto" onclick="toggleMobileNav()">Contacto</a>
+  <a href="#legal" onclick="toggleMobileNav()">Información Legal</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div style="position:relative;z-index:2;width:100%;">
+    <div class="hero-content">
+      <div class="hero-badge">🎨 Pinturas y Recubrimientos Premium</div>
+      <h1>Dale vida a cada <span class="accent">superficie</span> con color</h1>
+      <p>Pinturas de calidad para interiores, exteriores e industria. Asesoría personalizada, amplia paleta de colores y productos con garantía de durabilidad.</p>
+      <div class="hero-actions">
+        <a href="#catalogo" class="btn-primary">Ver Catálogo →</a>
+        <a href="#contacto" class="btn-outline">Solicitar Asesoría</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">200+</div><div class="label">Colores</div></div>
+        <div class="hero-stat"><div class="num">15+</div><div class="label">Años en el mercado</div></div>
+        <div class="hero-stat"><div class="num">3k+</div><div class="label">Clientes</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-swatch hs1">Interior</div>
+      <div class="hero-swatch hs2">Exterior</div>
+      <div class="hero-swatch hs3">Anticorrosivo</div>
+      <div class="hero-swatch hs4">Esmalte</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categorias">
+  <div class="section-header">
+    <span class="section-label">Nuestras categorías</span>
+    <h2 class="section-title">Pinturas para cada necesidad</h2>
+    <p class="section-desc">Contamos con soluciones en pintura para todos los espacios y superficies, con productos que cumplen estándares de calidad y seguridad.</p>
+  </div>
+  <div class="cats-grid">
+    <div class="cat-card interior fade-up">
+      <div class="cat-icon">🏠</div>
+      <h3>Pintura Interior</h3>
+      <p>Acabados lavables, resistentes al manchado y con baja emisión de VOC. Ideal para salas, habitaciones, cocinas y baños.</p>
+      <a href="#catalogo" class="cat-link">Ver productos →</a>
+      <div class="cat-bg">🏠</div>
+    </div>
+    <div class="cat-card exterior fade-up">
+      <div class="cat-icon">🏗️</div>
+      <h3>Pintura Exterior</h3>
+      <p>Formuladas para resistir la intemperie, humedad y variaciones de temperatura. Protección duradera para fachadas y muros.</p>
+      <a href="#catalogo" class="cat-link">Ver productos →</a>
+      <div class="cat-bg">🏗️</div>
+    </div>
+    <div class="cat-card industrial fade-up">
+      <div class="cat-icon">🏭</div>
+      <h3>Pintura Industrial</h3>
+      <p>Recubrimientos anticorrosivos, epóxicos y de alto desempeño para estructuras metálicas, pisos y maquinaria industrial.</p>
+      <a href="#catalogo" class="cat-link">Ver productos →</a>
+      <div class="cat-bg">🏭</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="catalogo">
+  <div class="section-header">
+    <span class="section-label">Catálogo</span>
+    <h2 class="section-title">Nuestros productos</h2>
+    <p class="section-desc">Precios claros y transparentes. Consulta disponibilidad de colores y presentaciones con nuestro equipo.</p>
+  </div>
+  <div class="products-grid" id="productsGrid">
+    <!-- Generado por JS -->
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured" id="destacados">
+  <div class="section-header">
+    <span class="section-label">Lo más vendido</span>
+    <h2 class="section-title" style="color:var(--white)">Productos destacados</h2>
+  </div>
+  <div class="featured-grid">
+    <div class="featured-card fc-main">
+      <div class="tag">⭐ Más Vendido</div>
+      <div class="fc-visual">🪣</div>
+      <h3>EsmalteMax Pro Blanco Total</h3>
+      <p>Esmalte sintético de alto brillo con excelente cobertura y resistencia al desgaste. Ideal para maderas, metales y muros interiores.</p>
+      <div class="price">$52.900 <small style="font-size:0.9rem;font-family:'DM Sans',sans-serif;font-weight:400;opacity:0.7">/ galón</small></div>
+      <button class="btn-primary" onclick="openModal(0)">Ver detalles →</button>
+    </div>
+    <div class="small-featured">
+      <div class="featured-card fc-sm" style="flex:1">
+        <div class="tag">🔥 Popular</div>
+        <h3>AquaShield Exterior</h3>
+        <p>Pintura acrílica resistente a la lluvia y rayos UV, acabado mate y satinado disponible.</p>
+        <div class="price">$68.500 <small style="font-size:0.85rem;font-family:'DM Sans',sans-serif;font-weight:400;opacity:0.7">/ galón</small></div>
+        <button class="btn-primary" onclick="openModal(4)" style="margin-top:auto">Ver detalles →</button>
+      </div>
+      <div class="featured-card fc-sm2" style="flex:1">
+        <div class="tag">🛡️ Industria</div>
+        <h3>Anticorrosivo Industrial FX</h3>
+        <p>Protección de alta adherencia para estructuras metálicas en ambientes exigentes.</p>
+        <div class="price">$85.000 <small style="font-size:0.85rem;font-family:'DM Sans',sans-serif;font-weight:400;opacity:0.7">/ galón</small></div>
+        <button class="btn-primary" onclick="openModal(6)" style="margin-top:auto">Ver detalles →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="section-header center">
+    <span class="section-label">¿Por qué elegirnos?</span>
+    <h2 class="section-title">Calidad y transparencia en cada producto</h2>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit fade-up">
+      <div class="benefit-icon">🎨</div>
+      <h3>Amplia paleta de colores</h3>
+      <p>Más de 200 tonos disponibles para personalizar cada espacio a tu gusto.</p>
+    </div>
+    <div class="benefit fade-up">
+      <div class="benefit-icon">✅</div>
+      <h3>Calidad comprobada</h3>
+      <p>Productos que cumplen normativas técnicas de calidad y seguridad en Colombia.</p>
+    </div>
+    <div class="benefit fade-up">
+      <div class="benefit-icon">💬</div>
+      <h3>Asesoría personalizada</h3>
+      <p>Nuestros asesores te ayudan a elegir el producto ideal para tu proyecto.</p>
+    </div>
+    <div class="benefit fade-up">
+      <div class="benefit-icon">🚚</div>
+      <h3>Entrega a domicilio</h3>
+      <p>Envíos a toda la región. Consulta disponibilidad y tiempos de entrega.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="nosotros">
+  <div class="about-inner">
+    <div class="about-visual">
+      <div class="about-block ab1">🎨</div>
+      <div class="about-block ab2">🏗️</div>
+      <div class="about-block ab3">✨</div>
+    </div>
+    <div class="about-content">
+      <span class="section-label">Sobre nosotros</span>
+      <h2 class="section-title">Más de 15 años coloreando Colombia</h2>
+      <p class="section-desc">Somos una empresa especializada en la venta de pinturas y recubrimientos para el sector residencial, construcción e industrial, comprometidos con ofrecer productos de calidad, precios justos y un servicio honesto.</p>
+      <ul class="about-list">
+        <li>Productos con fichas técnicas disponibles para consulta.</li>
+        <li>Precios transparentes sin costos ocultos.</li>
+        <li>Personal capacitado para orientar tu compra.</li>
+        <li>Amplia variedad de marcas y formulaciones.</li>
+        <li>Atención post-venta y soporte técnico.</li>
+      </ul>
+      <a href="#contacto" class="btn-primary">Contáctanos →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contacto">
+  <div class="section-header">
+    <span class="section-label">Contáctanos</span>
+    <h2 class="section-title">Estamos para ayudarte</h2>
+    <p class="section-desc">Escríbenos o llámanos. Te respondemos en horario de atención, sin compromiso.</p>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-info">
+      <h3>Información de contacto</h3>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="ci-icon">📞</div>
+          <div>
+            <div class="ci-label">Teléfono / WhatsApp</div>
+            <div class="ci-val">+57 300 123 4567</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📧</div>
+          <div>
+            <div class="ci-label">Correo electrónico</div>
+            <div class="ci-val">ventas@colormaestro.co</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div>
+            <div class="ci-label">Dirección</div>
+            <div class="ci-val">Cra. 45 #12-34, Medellín, Antioquia</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🕐</div>
+          <div>
+            <div class="ci-label">Horario de atención</div>
+            <div class="ci-val">Lun–Vie 8:00am–6:00pm · Sáb 9:00am–2:00pm</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>Envíanos un mensaje</h3>
+      <div class="form-group">
+        <label for="nombre">Nombre completo *</label>
+        <input type="text" id="nombre" placeholder="Tu nombre" />
+      </div>
+      <div class="form-group">
+        <label for="email">Correo electrónico *</label>
+        <input type="email" id="email" placeholder="correo@ejemplo.com" />
+      </div>
+      <div class="form-group">
+        <label for="asunto">¿En qué te podemos ayudar?</label>
+        <select id="asunto">
+          <option value="">Selecciona una opción</option>
+          <option>Consulta sobre productos</option>
+          <option>Cotización</option>
+          <option>Disponibilidad de colores</option>
+          <option>Envíos y domicilios</option>
+          <option>Soporte técnico</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="mensaje">Mensaje *</label>
+        <textarea id="mensaje" placeholder="Describe tu consulta..."></textarea>
+      </div>
+      <button class="form-submit" onclick="handleFormSubmit()">Enviar mensaje</button>
+      <p class="form-note">* Campos obligatorios. Tu información es tratada conforme a nuestra <a href="#legal" style="color:var(--clay)" onclick="showLegal('privacidad')">Política de Privacidad</a>. No compartimos tus datos con terceros para fines comerciales.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LEGAL -->
+<section class="legal-section" id="legal">
+  <span class="section-label">Información legal</span>
+  <h2 class="section-title" style="margin-bottom:28px">Políticas y términos</h2>
+  <div class="legal-tabs">
+    <button class="legal-tab active" onclick="showLegal('privacidad')">Política de Privacidad</button>
+    <button class="legal-tab" onclick="showLegal('terminos')">Términos y Condiciones</button>
+    <button class="legal-tab" onclick="showLegal('devoluciones')">Política de Devoluciones</button>
+  </div>
+
+  <div class="legal-content active" id="legal-privacidad">
+    <h2>Política de Privacidad</h2>
+    <p><em>Última actualización: enero de 2025</em></p>
+    <h3>1. Responsable del tratamiento</h3>
+    <p>ColorMaestro S.A.S., con domicilio en Medellín, Antioquia, es responsable del tratamiento de los datos personales recopilados a través de este sitio web, conforme a la Ley 1581 de 2012 y el Decreto 1377 de 2013.</p>
+    <h3>2. Datos que recopilamos</h3>
+    <p>Únicamente recopilamos los datos que el usuario nos proporciona voluntariamente a través del formulario de contacto: nombre, correo electrónico y mensaje. No recopilamos datos sensibles ni información de pago directamente en este sitio.</p>
+    <h3>3. Finalidad del tratamiento</h3>
+    <p>Los datos recopilados se usan exclusivamente para responder consultas, enviar cotizaciones solicitadas y mejorar nuestro servicio. No vendemos ni cedemos datos personales a terceros con fines comerciales.</p>
+    <h3>4. Derechos del titular</h3>
+    <p>Tienes derecho a conocer, actualizar, rectificar y suprimir tus datos personales. Puedes ejercer estos derechos escribiendo a: privacidad@colormaestro.co</p>
+    <h3>5. Uso de cookies</h3>
+    <p>Este sitio puede usar cookies técnicas esenciales para su funcionamiento. No utilizamos cookies de seguimiento publicitario sin tu consentimiento.</p>
+  </div>
+
+  <div class="legal-content" id="legal-terminos">
+    <h2>Términos y Condiciones</h2>
+    <p><em>Última actualización: enero de 2025</em></p>
+    <h3>1. Aceptación</h3>
+    <p>Al acceder y usar este sitio web, aceptas los presentes términos y condiciones. Si no estás de acuerdo, te pedimos que no uses el sitio.</p>
+    <h3>2. Información de productos</h3>
+    <p>Los precios, disponibilidad y especificaciones de productos pueden cambiar sin previo aviso. Las imágenes son ilustrativas; los colores finales pueden variar ligeramente según el monitor y la superficie de aplicación. Siempre recomendamos solicitar una muestra antes de comprar en grandes cantidades.</p>
+    <h3>3. Precios</h3>
+    <p>Todos los precios están expresados en pesos colombianos (COP) e incluyen IVA donde aplique. Los precios publicados son orientativos; consulta disponibilidad y precio final con nuestro equipo de ventas.</p>
+    <h3>4. Limitación de responsabilidad</h3>
+    <p>ColorMaestro no se responsabiliza por resultados derivados de una aplicación incorrecta del producto. Siempre consulta la ficha técnica del producto y, si es necesario, contrata a un profesional para la aplicación.</p>
+    <h3>5. Propiedad intelectual</h3>
+    <p>El contenido de este sitio (textos, imágenes, logotipos) es propiedad de ColorMaestro o tiene licencia de uso. No está permitida su reproducción sin autorización escrita.</p>
+  </div>
+
+  <div class="legal-content" id="legal-devoluciones">
+    <h2>Política de Devoluciones</h2>
+    <p><em>Última actualización: enero de 2025</em></p>
+    <h3>Condiciones para devolución</h3>
+    <p>Aceptamos devoluciones dentro de los 5 días hábiles siguientes a la recepción del producto, siempre que:</p>
+    <ul>
+      <li>El producto esté sin abrir y en su empaque original.</li>
+      <li>Se presente la factura o comprobante de compra.</li>
+      <li>El producto no haya sido mezclado, tintado ni alterado.</li>
+    </ul>
+    <h3>Productos tintados o personalizados</h3>
+    <p>Las pinturas tintadas a pedido (colores personalizados) no son devueltas, salvo defecto de fabricación comprobado. Por esto recomendamos siempre confirmar el color con una muestra antes de procesar la orden.</p>
+    <h3>Productos con defecto</h3>
+    <p>Si el producto presenta un defecto de fabricación, debes reportarlo dentro de los 10 días hábiles. Evaluamos el caso y, si se confirma el defecto, reponemos el producto o realizamos un reembolso según corresponda.</p>
+    <h3>Proceso de devolución</h3>
+    <p>Para iniciar una devolución, comunícate con nosotros por correo a ventas@colormaestro.co o por WhatsApp al +57 300 123 4567. Te guiaremos en el proceso sin complicaciones.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <div class="logo-icon">C</div>
+        <span>Color<em>Maestro</em></span>
+      </div>
+      <p class="footer-desc">Empresa colombiana especializada en pinturas y recubrimientos para el hogar, la construcción y la industria. Más de 15 años ofreciendo calidad y asesoría honesta.</p>
+      <div class="social-links">
+        <a href="#" class="social-link" title="Facebook">📘</a>
+        <a href="#" class="social-link" title="Instagram">📷</a>
+        <a href="#" class="social-link" title="WhatsApp">💬</a>
+        <a href="#" class="social-link" title="YouTube">▶️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Productos</h4>
+      <ul>
+        <li><a href="#catalogo">Pintura Interior</a></li>
+        <li><a href="#catalogo">Pintura Exterior</a></li>
+        <li><a href="#catalogo">Esmaltes</a></li>
+        <li><a href="#catalogo">Anticorrosivos</a></li>
+        <li><a href="#catalogo">Barnices</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#nosotros">Sobre nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#destacados">Destacados</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#legal" onclick="showLegal('privacidad')">Política de Privacidad</a></li>
+        <li><a href="#legal" onclick="showLegal('terminos')">Términos y Condiciones</a></li>
+        <li><a href="#legal" onclick="showLegal('devoluciones')">Política de Devoluciones</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 ColorMaestro S.A.S. Todos los derechos reservados. · NIT: 900.123.456-7 · Medellín, Colombia</span>
+    <div class="footer-legal">
+      <a href="#legal" onclick="showLegal('privacidad')">Privacidad</a>
+      <a href="#legal" onclick="showLegal('terminos')">Términos</a>
+      <a href="#legal" onclick="showLegal('devoluciones')">Devoluciones</a>
+    </div>
+  </div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="check">✓</span>
+  <span id="toastMsg">Mensaje enviado correctamente</span>
+</div>
+
+<script>
+  // ===== PRODUCT DATA =====
+  const products = [
+    {
+      name: "EsmalteMax Pro Blanco Total",
+      type: "Esmalte Sintético Interior/Exterior",
+      badge: "Más Vendido",
+      color: "pc-blanco",
+      emoji: "🪣",
+      price: "$52.900",
+      unit: "galón",
+      desc: "Esmalte sintético de alto brillo con excelente cobertura y resistencia al desgaste. Formulado para interiores y exteriores sobre superficies de madera, metal y muros.",
+      longDesc: "Nuestro esmalte sintético ofrece un acabado brillante, duradero y fácil de limpiar. Gracias a su formulación avanzada, cubre imperfecciones superficiales y protege contra la humedad y la abrasión moderada. No contiene mercurio y cumple la norma técnica colombiana NTC 1867.",
+      specs: { "Uso": "Interior / Exterior", "Superficie": "Madera, metal, muros", "Rendimiento": "10–12 m²/L", "Tiempo de secado": "2–4 horas", "Capas": "2 manos", "Acabado": "Alto brillo" },
+      recs: "Lija previamente la superficie. Aplica una mano de sellador en maderas porosas. Diluye máx. 10% con thinner. Asegúrate de ventilar el área durante y después de la aplicación."
+    },
+    {
+      name: "VinilTex Interior Lavable",
+      type: "Pintura Vinílica Interior",
+      badge: "Nuevo",
+      color: "pc-rojo",
+      emoji: "🎨",
+      price: "$38.500",
+      unit: "galón",
+      desc: "Pintura acrílica lavable de bajo olor para interiores. Alta resistencia al manchado y fácil limpieza con agua jabonosa.",
+      longDesc: "VinilTex es nuestra línea de pintura vinílica lavable con tecnología de microcápsulas que facilita la limpieza de manchas cotidianas. Baja emisión de VOC para ambientes saludables. Disponible en más de 80 tonos.",
+      specs: { "Uso": "Interior", "Superficie": "Muros y cielos rasos", "Rendimiento": "12–14 m²/L", "Tiempo de secado": "1 hora", "Capas": "2 manos", "Acabado": "Mate / Semi-brillo" },
+      recs: "Aplica sobre superficie limpia, seca y libre de polvo. No diluir más del 15%. Mezcla bien antes de usar. Ideal para habitaciones con niños por su fácil limpieza."
+    },
+    {
+      name: "AcuaColor Satinado",
+      type: "Pintura Acrílica Interior",
+      badge: null,
+      color: "pc-azul",
+      emoji: "💧",
+      price: "$41.200",
+      unit: "galón",
+      desc: "Pintura acrílica base agua con acabado satinado. Secado rápido, buen cubrimiento y resistente a manchas moderadas.",
+      longDesc: "AcuaColor es la opción ideal para quienes buscan un acabado satinado elegante con la practicidad del secado al agua. No requiere solventes para la limpieza de herramientas. Formulación de baja toxicidad apta para uso residencial.",
+      specs: { "Uso": "Interior", "Superficie": "Muros, tablayeso", "Rendimiento": "11–13 m²/L", "Tiempo de secado": "45 min", "Capas": "2 manos", "Acabado": "Satinado" },
+      recs: "Protege pisos y muebles antes de aplicar. Herramientas se lavan con agua. No aplicar a temperaturas menores a 10°C."
+    },
+    {
+      name: "BarnizTeak Premium",
+      type: "Barniz para Madera",
+      badge: null,
+      color: "pc-amarillo",
+      emoji: "🌳",
+      price: "$48.000",
+      unit: "galón",
+      desc: "Barniz poliuretánico con filtro UV para maderas interiores y exteriores. Realza la veta natural y protege contra la humedad.",
+      longDesc: "BarnizTeak combina protección de alto desempeño con una terminación que realza la belleza natural de la madera. Su filtro UV retarda el envejecimiento y amarillamiento. Apto para pisos, muebles, puertas y ventanas.",
+      specs: { "Uso": "Interior / Exterior", "Superficie": "Madera", "Rendimiento": "8–10 m²/L", "Tiempo de secado": "6 horas", "Capas": "3 manos", "Acabado": "Brillante / Mate" },
+      recs: "Lija con lija 180 entre cada capa. Aplica en dirección de la veta. Para exteriores da 3 capas mínimo. Renueva la aplicación cada 2–3 años."
+    },
+    {
+      name: "AquaShield Exterior",
+      type: "Pintura Exterior Impermeabilizante",
+      badge: "Popular",
+      color: "pc-verde",
+      emoji: "🛡️",
+      price: "$68.500",
+      unit: "galón",
+      desc: "Pintura acrílica de alta resistencia a la intemperie. Impermeabilizante, resistente a rayos UV y fungicida.",
+      longDesc: "AquaShield Exterior está diseñada para superficies expuestas a la lluvia, el sol y la contaminación. Su componente fungicida evita el desarrollo de hongos y moho en climas húmedos como el de la región andina colombiana. Mantiene el color por más tiempo gracias a sus pigmentos de alta resistencia.",
+      specs: { "Uso": "Exterior", "Superficie": "Muros, fachadas, concreto", "Rendimiento": "8–10 m²/L", "Tiempo de secado": "2 horas", "Capas": "2 manos", "Acabado": "Mate / Semi-brillo" },
+      recs: "Aplica sobre superficie limpia. Si hay hongos, trata primero con fungicida. No aplicar en superficies húmedas ni bajo lluvia. Diluye máx. 10% con agua."
+    },
+    {
+      name: "PisoFlex Epóxico Gris",
+      type: "Recubrimiento Epóxico para Pisos",
+      badge: null,
+      color: "pc-gris",
+      emoji: "🏭",
+      price: "$92.000",
+      unit: "kit 4L",
+      desc: "Sistema epóxico bicomponente para pisos de concreto. Alta resistencia al tráfico, aceites y productos químicos.",
+      longDesc: "PisoFlex Epóxico es la solución profesional para pisos de bodegas, talleres, garajes y locales comerciales. Su formulación bicomponente garantiza un acabado duro, impermeable y de fácil limpieza. Presentación en kit componente A + B.",
+      specs: { "Uso": "Industrial / Comercial", "Superficie": "Pisos de concreto", "Rendimiento": "6–8 m²/L", "Tiempo de secado": "24 horas", "Capas": "2 manos", "Acabado": "Semi-brillo" },
+      recs: "Prepara la superficie con esmeril o shot blast. Mezcla A+B en la proporción indicada. Aplica a temperatura entre 15°C y 35°C. Permite curado completo 7 días antes del tráfico pesado."
+    },
+    {
+      name: "Anticorrosivo Industrial FX",
+      type: "Anticorrosivo para Metal",
+      badge: "Industria",
+      color: "pc-terracota",
+      emoji: "⚙️",
+      price: "$85.000",
+      unit: "galón",
+      desc: "Recubrimiento anticorrosivo de alta adherencia. Protege estructuras metálicas, tuberías y equipos en ambientes agresivos.",
+      longDesc: "Anticorrosivo FX está formulado para aplicarse directamente sobre metal ligeramente oxidado (método 'moja el óxido'). Su inhibidor de corrosión activo crea una barrera duradera. Compatible con esmaltes y acabados industriales.",
+      specs: { "Uso": "Industrial / Exterior", "Superficie": "Metal, hierro, acero", "Rendimiento": "8–10 m²/L", "Tiempo de secado": "4 horas", "Capas": "2 manos", "Acabado": "Mate" },
+      recs: "Elimina el óxido suelto con lija o cepillo metálico. Aplica directamente sobre el metal. Complementar con esmalte o acabado industrial como segunda capa."
+    },
+    {
+      name: "Impermeabilizante Elástico",
+      type: "Impermeabilizante Acrílico",
+      badge: null,
+      color: "pc-negro",
+      emoji: "☔",
+      price: "$74.000",
+      unit: "galón",
+      desc: "Membrana elástica para terrazas y cubiertas. Sella grietas y fisuras, resistente a la intemperie y al paso de agua.",
+      longDesc: "Formulado para crear una membrana continua y elástica sobre losas, terrazas y cubiertas. Su alta elongación le permite cubrir microfisuras sin romperse. Refleja la radiación solar y ayuda a reducir la temperatura interior.",
+      specs: { "Uso": "Exterior / Terrazas", "Superficie": "Concreto, losa, teja", "Rendimiento": "5–7 m²/L", "Tiempo de secado": "4 horas", "Capas": "3 manos", "Acabado": "Mate elástico" },
+      recs: "Sella fisuras mayores a 3mm con masilla elastomérica antes de aplicar. Aplica en 3 manos cruzadas. No uses en zonas de tráfico frecuente."
+    }
+  ];
+
+  // Render products
+  const grid = document.getElementById('productsGrid');
+  products.forEach((p, i) => {
+    grid.innerHTML += `
+      <div class="product-card fade-up">
+        <div class="product-img">
+          <div class="paint-visual ${p.color}">${p.emoji}</div>
+          ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
+        </div>
+        <div class="product-info">
+          <div class="product-type">${p.type}</div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-desc">${p.desc}</div>
+          <div class="product-footer">
+            <div class="product-price">${p.price} <small>/${p.unit}</small></div>
+            <button class="btn-sm" onclick="openModal(${i})">Ver más</button>
+          </div>
+        </div>
+      </div>`;
+  });
+
+  // ===== MODAL =====
+  function openModal(i) {
+    const p = products[i];
+    const specs = Object.entries(p.specs).map(([k,v]) => `
+      <div class="spec"><div class="spec-label">${k}</div><div class="spec-val">${v}</div></div>
+    `).join('');
+    document.getElementById('modalBody').innerHTML = `
+      <div class="modal-img ${p.color}">${p.emoji}</div>
+      <div class="modal-type">${p.type}</div>
+      <h2 class="modal-title">${p.name}</h2>
+      <div class="modal-price">${p.price} <small style="font-size:0.85rem;font-family:'DM Sans',sans-serif;font-weight:400;color:var(--stone)">/ ${p.unit}</small></div>
+      <p class="modal-desc">${p.longDesc}</p>
+      <h3 class="specs-title">Especificaciones técnicas</h3>
+      <div class="specs-grid">${specs}</div>
+      <div class="modal-recs">
+        <h4>💡 Recomendaciones de uso</h4>
+        <p>${p.recs}</p>
+      </div>
+      <div class="modal-actions">
+        <a href="#contacto" class="btn-primary" onclick="closeModal()">Solicitar cotización →</a>
+        <button class="btn-outline" style="border-color:rgba(138,125,110,0.4);color:var(--stone)" onclick="closeModal()">Cerrar</button>
+      </div>
+    `;
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+
+  // ===== LEGAL TABS =====
+  function showLegal(id) {
+    document.querySelectorAll('.legal-content').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.legal-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('legal-'+id).classList.add('active');
+    document.querySelectorAll('.legal-tab').forEach(t => {
+      if (t.textContent.toLowerCase().includes(id === 'privacidad' ? 'privac' : id === 'terminos' ? 'térm' : 'devol')) t.classList.add('active');
+    });
+    document.querySelectorAll('.legal-tab').forEach((t,i) => {
+      const map = ['privacidad','terminos','devoluciones'];
+      if (map[i] === id) t.classList.add('active');
+    });
+  }
+
+  // ===== FORM =====
+  function handleFormSubmit() {
+    const nombre = document.getElementById('nombre').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+    if (!nombre || !email || !mensaje) {
+      showToast('Por favor completa los campos obligatorios.', false);
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showToast('Ingresa un correo electrónico válido.', false);
+      return;
+    }
+    showToast('¡Mensaje enviado! Te responderemos pronto.');
+    document.getElementById('nombre').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('asunto').value = '';
+    document.getElementById('mensaje').value = '';
+  }
+  function showToast(msg, ok = true) {
+    const t = document.getElementById('toast');
+    const icon = t.querySelector('.check');
+    document.getElementById('toastMsg').textContent = msg;
+    icon.textContent = ok ? '✓' : '⚠️';
+    icon.style.color = ok ? '#4caf50' : '#ff9800';
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+  }
+
+  // ===== NAV SCROLL =====
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // ===== MOBILE NAV =====
+  function toggleMobileNav() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+
+  // ===== FADE-UP OBSERVER =====
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // Fix legal tabs highlight
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.legal-tab');
+    tabs.forEach((t, i) => {
+      const ids = ['privacidad','terminos','devoluciones'];
+      t.onclick = () => showLegal(ids[i]);
+    });
+  });
+</script>
+</body>
+</html>
